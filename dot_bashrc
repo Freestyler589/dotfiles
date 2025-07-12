@@ -17,22 +17,22 @@ fastfetch
 #2. use custom starship prompt
 eval "$(starship init bash)"
 
-#3. Expand the history size
+#2. Expand the history size
 export HISTFILESIZE=10000
 export HISTSIZE=500
 export HISTTIMEFORMAT="%F %T" # add timestamp to history
 
-#4. Don't put duplicate lines in the history and do not add lines that start with a space
+#3. Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
-#5. Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
+#4. Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
 
-#6. Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
+#5. Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
 shopt -s histappend
 PROMPT_COMMAND='history -a'
 
-#7. copy file with brogress bar
+#6. copy file with brogress bar
 cpp() {
     set -e
     strace -q -ewrite cp -- "${1}" "${2}" 2>&1 |
@@ -51,3 +51,6 @@ cpp() {
     }
     END { print "" }' total_size="$(stat -c '%s' "${1}")" count=0
 }
+
+#2. use custom starship prompt
+eval "$(starship init bash)"
