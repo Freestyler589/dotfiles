@@ -29,6 +29,8 @@ shopt -s checkwinsize
 shopt -s histappend
 PROMPT_COMMAND='history -a'
 
+#6. custom starship location
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
-#6. use custom starship prompt
+#7. use custom starship prompt
 eval "$(starship init bash)"
